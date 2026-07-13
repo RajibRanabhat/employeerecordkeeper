@@ -1,0 +1,36 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  username  String   @unique
+  password  String   // bcrypt hash, never plain text
+  role      String   @default("EMPLOYEE") // "ADMIN" | "EMPLOYEE"
+  createdAt DateTime @default(now())
+
+  employee  Employee?
+}
+
+model Employee {
+  id               Int      @id @default(autoincrement())
+  userId           Int      @unique
+  user             User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  fullName         String
+  fatherName       String?
+  phone            String?
+  dob              DateTime?
+  dateJoined       DateTime @default(now())
+  designation      String?
+  highestEducation String?
+  address          String?
+  email            String?  @unique
+  salary           Float?
+
+  updatedAt        DateTime @updatedAt
+}

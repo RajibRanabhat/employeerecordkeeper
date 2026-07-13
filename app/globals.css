@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #f1efe6;
+  --color-card: #ffffff;
+  --color-ink: #23301f;
+  --color-ink-soft: #5b6a57;
+  --color-ledger: #2f5233;
+  --color-ledger-hover: #24401f;
+  --color-gold: #a9762f;
+  --color-line: #dad4c3;
+  --color-danger: #9a3b2e;
+  --color-danger-hover: #7e2f24;
+
+  --font-display: var(--font-source-serif), serif;
+  --font-sans: var(--font-inter), sans-serif;
+  --font-mono: var(--font-plex-mono), monospace;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+}
+
+button:not(:disabled) {
+  cursor: pointer;
+}
